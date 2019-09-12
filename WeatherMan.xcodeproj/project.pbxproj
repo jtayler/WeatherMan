@@ -196,6 +196,7 @@
 		A1B3416D22FCB3460012296C /* CityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHeaderView.swift; sourceTree = "<group>"; };
 		A1B3416F22FCB34E0012296C /* CityHourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHourlyView.swift; sourceTree = "<group>"; };
 		A1B3417122FCB3550012296C /* CityDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDailyView.swift; sourceTree = "<group>"; };
+		A1B75729232ABD7D00860DB6 /* weathermanscreenshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weathermanscreenshot.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +331,7 @@
 		A1B3412022FCAE480012296C = {
 			isa = PBXGroup;
 			children = (
+				A1B75729232ABD7D00860DB6 /* weathermanscreenshot.jpg */,
 				A1B3412B22FCAE480012296C /* WeatherMan */,
 				A16F5A4022FDB64E0008CD5D /* TVWeatherMan */,
 				A16F5A6A22FDC4ED0008CD5D /* WatchWeatherMan */,
