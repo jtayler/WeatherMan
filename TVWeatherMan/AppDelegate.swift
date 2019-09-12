@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
 
         Location.shared.cityStore = cityStore
-        
+        Location.shared.startUpdating()
+
         window.makeKeyAndVisible()
                                 
         return true

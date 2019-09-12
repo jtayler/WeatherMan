@@ -96,7 +96,6 @@ struct CityRowLarge : View {
                         }
                     }
                 }
-                .fixedSize(horizontal: true, vertical: true)
                 .animation(.easeInOut(duration: 1))
             }
             .padding()

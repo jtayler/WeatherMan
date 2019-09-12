@@ -21,8 +21,8 @@ struct Tall: View {
             Text(city.temperatureFormatted)
                 .font(.system(size: 150))
                 .fontWeight(.ultraLight)
-                .fixedSize(horizontal: true, vertical: false)
         }
+        .fixedSize(horizontal: true, vertical: false)
         .padding()
     }
 }

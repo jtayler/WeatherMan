@@ -32,7 +32,6 @@ struct CityWeatherBigView : View {
                 VStack {
                     Group {
                         HStack() {
-                            
                             Spacer()
                             
                             HStack(spacing: 64) {
@@ -44,13 +43,11 @@ struct CityWeatherBigView : View {
                                 Text(city.temperatureFormatted)
                                     .font(.system(size: 250))
                                     .fontWeight(.ultraLight)
-                                    .fixedSize(horizontal: true, vertical: false)
                             }
-                        .fixedSize()
+                            .fixedSize(horizontal: true, vertical: false)
                             .padding()
                             
                             Spacer()
-                            
                         }
                         
                         Text(city.formattedSummary)
@@ -58,10 +55,10 @@ struct CityWeatherBigView : View {
                         
                         Text(city.longerSummary)
                             .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true) // this should not be needed because lineLimit should work?
-                        
+
                     }
-                }                    .padding()
+                }
+                .padding()
             }
             .padding()
             
