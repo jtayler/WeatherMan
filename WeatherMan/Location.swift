@@ -35,6 +35,7 @@ class Location: NSObject, CLLocationManagerDelegate, ObservableObject, Identifia
         manager.delegate = self
         
         manager.requestLocation()
+        manager.startUpdatingLocation()
     }
     
     func startReceivingSignificantLocationChanges() {
