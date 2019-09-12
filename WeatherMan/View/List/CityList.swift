@@ -18,15 +18,6 @@ struct CityList : View {
     @State private var isPresentingSearch: Bool = false
     @State private var isEditing: Bool = false
     @State private var isPresented: Bool = false
-    
-    var modalPresentation: some View {
-      NavigationView {
-        Text("Hello World")
-          .font(.caption)
-          .navigationBarTitle(Text("Modal Contents"))
-          .navigationBarItems(trailing: Button(action: { self.isPresented = false } ) { Text("Done") })
-      }
-    }
 
     var body: some View {
         NavigationView {
@@ -52,7 +43,6 @@ struct CityList : View {
             }
         }
         .onAppear {
-            // We wanted to navigate to always show a city
         }
 
     }

@@ -8,18 +8,34 @@
 
 import SwiftUI
 
+struct WeatherAlert: Codable, Identifiable {
+    
+    var id: Date {
+        return time
+    }
+    
+    var time: Date
+    var title: String
+
+    enum CodingKeys: String, CodingKey {
+        case time = "time"
+        case title = "title"
+    }
+    
+}
+
 struct Weather: Codable {
     
     var current: HourlyWeather
     var hours: Weather.List<HourlyWeather>
     var week: Weather.List<DailyWeather>
-    //var alert: Weather.List<WeatherAlert>
+    var alerts: Array<WeatherAlert>!
 
     enum CodingKeys: String, CodingKey {
         case current = "currently"
         case hours = "hourly"
         case week = "daily"
-//        case alert = "alerts"
+        case alerts = "alerts"
     }
     
 }

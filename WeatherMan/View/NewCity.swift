@@ -26,15 +26,9 @@ struct NewCity : View {
                         print("onEditing: \(changed)")
                         self.searchNearby()
                     })
-                        .onAppear {
-                            self.searchNearby()
-                        }
-
+                    .onAppear { self.searchNearby() }
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onReceive(search.publisher.last(), perform: { _search in
-                        print("onReceive: \(_search)")
-                        self.searchNearby()
-                    })
+                    .onReceive(search.publisher.last(), perform: { _search in self.searchNearby() })
                 }
                 
                 Section {

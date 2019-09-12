@@ -29,6 +29,10 @@ struct CityWeatherView : View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             Section {
+                ForEach(city.weather?.alerts ?? []) { alert in
+                    Text("\(alert.title)")
+                        .foregroundColor(.red)
+                }
                 CityHeaderView(city: city)
                     .padding()
             }
