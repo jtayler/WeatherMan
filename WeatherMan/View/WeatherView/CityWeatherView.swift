@@ -11,7 +11,8 @@ import SwiftUI
 struct CityWeatherView : View {
     
     @ObservedObject var city: City
-    
+    @State private var isPresenting: Bool = false
+
     func formattedTime(city: City) -> String {
         guard let weather = city.weather else {
             return "--º"
@@ -29,12 +30,25 @@ struct CityWeatherView : View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             Section {
-                ForEach(city.weather?.alerts ?? []) { alert in
-                    Text("\(alert.title)")
-                        .foregroundColor(.red)
-                }
                 CityHeaderView(city: city)
                     .padding()
+                
+                ForEach(city.weather?.alerts ?? []) { alert in
+                    Button(action: {
+                        self.$isPresenting.wrappedValue.toggle()
+                    }) {
+                        HStack {
+                            Image(systemName: "chevron.right.circle")
+                                .rotationEffect(.degrees(self.isPresenting ? 90 : 0))
+                            Text("\(alert.title)")
+                        }
+                        .foregroundColor(.red)
+                    }
+                    Text(self.isPresenting ? "\(alert.description)" : "")
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding([.leading,.trailing])
+                }
             }
             .padding()
             

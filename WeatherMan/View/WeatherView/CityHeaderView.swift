@@ -14,12 +14,12 @@ struct Tall: View {
     var body: some View {
         VStack() {
             city.weather?.current.icon.glyph
-                .font(.system(size: 150, weight: .ultraLight))
+                .font(.system(size: 120, weight: .ultraLight))
                 .imageScale(.medium)
                 .padding(.top)
 
             Text(city.temperatureFormatted)
-                .font(.system(size: 150))
+                .font(.system(size: 120))
                 .fontWeight(.ultraLight)
         }
         .fixedSize(horizontal: true, vertical: false)

@@ -33,6 +33,7 @@ struct CurrentDateView : View {
 struct WeatherIconStack : View {
     
     @ObservedObject var city: City
+    @State private var isPresenting: Bool = false
 
     var body: some View {
         VStack(alignment: .trailing) {
@@ -51,6 +52,15 @@ struct WeatherIconStack : View {
                         .fontWeight(.light)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
+
+                    ForEach(city.weather?.alerts ?? []) { alert in
+                        Text("\(alert.title)")
+                            .foregroundColor(.red)
+                        Text(self.isPresenting ? "\(alert.description)" : "")
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding([.leading,.trailing])
+                    }
                 }
                 .frame(width: 680)
             }

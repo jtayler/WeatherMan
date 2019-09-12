@@ -91,7 +91,7 @@ class Location: NSObject, CLLocationManagerDelegate, ObservableObject, Identifia
                     print("located \(localCity.name)")
                     
                     guard let city = cityStore.cities.first else {
-                        cityStore.cities.insert(localCity, at: 0)
+                        cityStore.cities.append(localCity)
                         return
                     }
                     

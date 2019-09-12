@@ -12,6 +12,8 @@ import Combine
 struct WatchCityWeatherView : View {
     
     @ObservedObject var city: City
+    
+    @State private var isPresenting: Bool = false
 
     func prefixList() -> Array<DailyWeather> {
         guard let weather = city.weather else {
@@ -57,6 +59,15 @@ struct WatchCityWeatherView : View {
                 Divider()
 
                 VStack {
+                    ForEach(city.weather?.alerts ?? []) { alert in
+                        Text("\(alert.title)")
+                            .foregroundColor(.red)
+                        Text(self.isPresenting ? "\(alert.description)" : "")
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding([.leading,.trailing])
+                    }
+
                     Text("\(city.longerSummary)")
                         .fontWeight(.light)
                         .multilineTextAlignment(.center)

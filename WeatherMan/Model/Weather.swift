@@ -16,10 +16,14 @@ struct WeatherAlert: Codable, Identifiable {
     
     var time: Date
     var title: String
+    var description: String
+    var uri: String
 
     enum CodingKeys: String, CodingKey {
         case time = "time"
         case title = "title"
+        case uri = "uri"
+        case description = "description"
     }
     
 }
