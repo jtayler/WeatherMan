@@ -7,10 +7,13 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct CityList : View {
     
     @EnvironmentObject var cityStore: CityStore
+    
+    @State var locationAuthorizationStatus: CLAuthorizationStatus
     
     @State private var isPresentingSearch: Bool = false
     @State private var isEditing: Bool = false

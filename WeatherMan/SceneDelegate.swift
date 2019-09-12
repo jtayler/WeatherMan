@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreLocation
 
 class MyUIHostingController<Content> : UIHostingController<Content> where Content : View {
     
@@ -39,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
             if let window = window {
-                let cityListView = CityList().environmentObject(cityStore)
+                let cityListView = CityList(locationAuthorizationStatus: Location.shared.locationAuthorizationStatus).environmentObject(cityStore)
                 window.rootViewController = MyUIHostingController(rootView: cityListView)
                 
                 let tint = UIColor(hex: "#ffe700ff")

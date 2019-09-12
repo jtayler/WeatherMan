@@ -15,7 +15,8 @@ class Location: NSObject, CLLocationManagerDelegate, ObservableObject, Identifia
     static let shared = Location()
     
     @Published var cityStore: CityStore
-    
+    @Published var locationAuthorizationStatus: CLAuthorizationStatus = .notDetermined
+
     private let manager: CLLocationManager
     
     var localCity = City()
@@ -114,15 +115,16 @@ class Location: NSObject, CLLocationManagerDelegate, ObservableObject, Identifia
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedWhenInUse {
+        locationAuthorizationStatus = status
+        if locationAuthorizationStatus == .authorizedWhenInUse {
             #if os(OSX)
             manager.startUpdatingLocation()
             #elseif os(iOS)
-            // compiles for iOS
+            manager.startUpdatingLocation()
             #elseif os(tvOS)
             // compiles for TV OS
             #elseif os(watchOS)
-            // compiles for Apple watch
+            manager.startUpdatingLocation()
             #endif
         }
     }
