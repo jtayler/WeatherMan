@@ -90,6 +90,9 @@
 		A1B3416E22FCB3460012296C /* CityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3416D22FCB3460012296C /* CityHeaderView.swift */; };
 		A1B3417022FCB34E0012296C /* CityHourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3416F22FCB34E0012296C /* CityHourlyView.swift */; };
 		A1B3417222FCB3550012296C /* CityDailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B3417122FCB3550012296C /* CityDailyView.swift */; };
+		A1B7572B232B143D00860DB6 /* WeatherAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7572A232B143D00860DB6 /* WeatherAlert.swift */; };
+		A1B7572C232B143D00860DB6 /* WeatherAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7572A232B143D00860DB6 /* WeatherAlert.swift */; };
+		A1B7572D232B143D00860DB6 /* WeatherAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B7572A232B143D00860DB6 /* WeatherAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -197,6 +200,7 @@
 		A1B3416F22FCB34E0012296C /* CityHourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityHourlyView.swift; sourceTree = "<group>"; };
 		A1B3417122FCB3550012296C /* CityDailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDailyView.swift; sourceTree = "<group>"; };
 		A1B75729232ABD7D00860DB6 /* weathermanscreenshot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = weathermanscreenshot.jpg; sourceTree = "<group>"; };
+		A1B7572A232B143D00860DB6 /* WeatherAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B3415622FCB0CF0012296C /* Weather.swift */,
+				A1B7572A232B143D00860DB6 /* WeatherAlert.swift */,
 				A1B3415A22FCB0FF0012296C /* WeatherList.swift */,
 				A1B3415C22FCB1080012296C /* DailyWeather.swift */,
 				A1B3415E22FCB1110012296C /* HourlyWeather.swift */,
@@ -500,6 +505,7 @@
 					};
 					A16F5A6822FDC4ED0008CD5D = {
 						CreatedOnToolsVersion = 11.0;
+						LastSwiftMigration = 1100;
 					};
 					A16F5A7422FDC4EE0008CD5D = {
 						CreatedOnToolsVersion = 11.0;
@@ -591,6 +597,7 @@
 				A16F5A5D22FDBA220008CD5D /* CityValidationManager.swift in Sources */,
 				A1357C7723271B6D00AC925F /* Color.swift in Sources */,
 				A16F5A5622FDB9D50008CD5D /* Weather.swift in Sources */,
+				A1B7572C232B143D00860DB6 /* WeatherAlert.swift in Sources */,
 				A16F5A5722FDB9D50008CD5D /* WeatherList.swift in Sources */,
 				A16F5A5B22FDB9D90008CD5D /* Date.swift in Sources */,
 				A16F5A5A22FDB9D90008CD5D /* Double.swift in Sources */,
@@ -614,6 +621,7 @@
 				A16F5A9922FDD4960008CD5D /* Weather.swift in Sources */,
 				A16F5A9B22FDD4960008CD5D /* DailyWeather.swift in Sources */,
 				A16F5A9E22FDD4AC0008CD5D /* Double.swift in Sources */,
+				A1B7572D232B143D00860DB6 /* WeatherAlert.swift in Sources */,
 				A16F5A7F22FDC4EE0008CD5D /* ExtensionDelegate.swift in Sources */,
 				A16F5A9A22FDD4960008CD5D /* WeatherList.swift in Sources */,
 				A16F5A9D22FDD4A00008CD5D /* API.swift in Sources */,
@@ -651,6 +659,7 @@
 				A1B3412F22FCAE480012296C /* SceneDelegate.swift in Sources */,
 				A1B3415722FCB0CF0012296C /* Weather.swift in Sources */,
 				A1B3415B22FCB0FF0012296C /* WeatherList.swift in Sources */,
+				A1B7572B232B143D00860DB6 /* WeatherAlert.swift in Sources */,
 				A1B3415122FCB0490012296C /* CityCompletionManager.swift in Sources */,
 				A13F61CE22FF9A540042098F /* CityWeatherBigView.swift in Sources */,
 				A13F61D223024E6F0042098F /* CityRowLarge.swift in Sources */,
@@ -805,14 +814,21 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D4V23AZF66;
 				IBSC_MODULE = WatchWeatherMan_Extension;
 				INFOPLIST_FILE = WatchWeatherMan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.oeinc.WeatherMan.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 6.0;
@@ -824,10 +840,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D4V23AZF66;
 				IBSC_MODULE = WatchWeatherMan_Extension;
 				INFOPLIST_FILE = WatchWeatherMan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.oeinc.WeatherMan.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

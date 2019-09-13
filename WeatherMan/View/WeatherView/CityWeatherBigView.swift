@@ -11,7 +11,8 @@ import SwiftUI
 struct CityWeatherBigView : View {
     
     @ObservedObject var city: City
-    
+    @State private var isPresenting: Bool = false
+
     func formattedTime(city: City) -> String {
         guard let weather = city.weather else {
             return "--º"
@@ -32,6 +33,7 @@ struct CityWeatherBigView : View {
                 VStack {
                     Group {
                         HStack() {
+                            
                             Spacer()
                             
                             HStack(spacing: 64) {
@@ -43,11 +45,13 @@ struct CityWeatherBigView : View {
                                 Text(city.temperatureFormatted)
                                     .font(.system(size: 250))
                                     .fontWeight(.ultraLight)
+
                             }
                             .fixedSize(horizontal: true, vertical: false)
                             .padding()
                             
                             Spacer()
+                            
                         }
                         
                         Text(city.formattedSummary)
@@ -57,10 +61,25 @@ struct CityWeatherBigView : View {
                             .multilineTextAlignment(.center)
 
                     }
+
+                    ForEach(city.weather?.alerts ?? []) { alert in
+                        Button(action: {
+                            self.$isPresenting.wrappedValue.toggle()
+                        }) {
+                            HStack {
+                                Image(systemName: "chevron.right.circle")
+                                    .rotationEffect(.degrees(self.isPresenting ? 90 : 0))
+                                Text("\(alert.title)")
+                            }
+                            .foregroundColor(.red)
+                        }
+                        Text(self.isPresenting ? "\(alert.description)" : "")
+                            .foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding([.leading,.trailing])
+                    }
                 }
-                .padding()
             }
-            .padding()
             
             Divider()
             

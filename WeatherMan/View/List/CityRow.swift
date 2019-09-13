@@ -12,6 +12,8 @@ import CoreLocation
 struct CityRow : View {
     
     @ObservedObject var city: City
+    
+    var isWide: Bool
     var isEditing: Bool
     
     var locationIconName: String {
@@ -45,28 +47,16 @@ struct CityRow : View {
             return false
         }
     }
-    
-    @State var isWide: Bool
-    
-    var didRotate: (Notification) -> Void = { notification in
-        switch UIDevice.current.orientation {
-        case .landscapeLeft, .landscapeRight:
-            print("Landscape")
-        case .portrait, .portraitUpsideDown:
-            print("Portrait")
-        default:
-            print("Rotation unknown")
-        }
-    }
-
-    
+        
     var body: some View {
         NavigationLink(destination:
             Group {
+                // this just doesn't work!
+                //
+                CityWeatherView(city: city)
                 if isWide {
-                    CityWeatherView(city: city)
                 } else {
-                    CityWeatherBigView(city: city)
+                    //CityWeatherBigView(city: city)
                 }
             }
 

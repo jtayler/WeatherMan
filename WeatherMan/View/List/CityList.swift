@@ -23,7 +23,7 @@ struct CityList : View {
         NavigationView {
             List {
                 ForEach(cityStore.cities) { city in
-                    CityRow(city: city, isEditing: self.isEditing, isWide: self.cityStore.largeView)
+                    CityRow(city: city, isWide: self.cityStore.largeView, isEditing: self.isEditing)
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: move)
