@@ -43,7 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let cityListView = CityList(locationAuthorizationStatus: Location.shared.locationAuthorizationStatus).environmentObject(cityStore)
                 window.rootViewController = MyUIHostingController(rootView: cityListView)
                 
-                let tint = UIColor(hex: "#ffe700ff")
+                let tint = UIColor(hex: "#4C8D79FF")
                 window.tintColor = tint
                 
                 window.makeKeyAndVisible()
